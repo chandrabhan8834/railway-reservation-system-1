@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h3 class="mb-4">Search PNR</h3>
+                <form method="post">
+                    <div class="mb-3">
+                        <label>Enter PNR</label>
+                        <input type="text" name="pnr" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </form>
+                {% if booking %}
+                <div class="mt-4 border rounded p-3 bg-light">
+                    <p><strong>PNR:</strong> {{ booking.pnr }}</p>
+                    <p><strong>Passenger:</strong> {{ booking.passenger_name }}</p>
+                    <p><strong>Train:</strong> {{ booking.train_name }}</p>
+                    <p><strong>Route:</strong> {{ booking.source }} → {{ booking.destination }}</p>
+                    <p><strong>Status:</strong> <span class="badge bg-success">{{ booking.status }}</span></p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

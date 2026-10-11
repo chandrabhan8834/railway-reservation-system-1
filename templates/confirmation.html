@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>Booking Confirmation</h3>
+                    <span class="badge bg-success">CONFIRMED</span>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6"><strong>PNR:</strong> {{ booking.pnr }}</div>
+                    <div class="col-md-6"><strong>Passenger:</strong> {{ booking.passenger_name }}</div>
+                    <div class="col-md-6"><strong>Train:</strong> {{ booking.train_name }}</div>
+                    <div class="col-md-6"><strong>Seat:</strong> {{ booking.seat_number }}</div>
+                    <div class="col-md-6"><strong>Journey Date:</strong> {{ booking.journey_date }}</div>
+                    <div class="col-md-6"><strong>Class:</strong> {{ booking.class }}</div>
+                    <div class="col-md-6"><strong>Source:</strong> {{ booking.source }}</div>
+                    <div class="col-md-6"><strong>Destination:</strong> {{ booking.destination }}</div>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="{{ url_for('trains.my_bookings') }}" class="btn btn-primary">View My Bookings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

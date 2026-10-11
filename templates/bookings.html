@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-4">My Bookings</h3>
+<table class="table table-striped table-bordered align-middle shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>PNR</th>
+            <th>Train</th>
+            <th>Passenger</th>
+            <th>Seat</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.pnr }}</td>
+            <td>{{ booking.train_name }}<br><small>{{ booking.source }} → {{ booking.destination }}</small></td>
+            <td>{{ booking.passenger_name }}</td>
+            <td>{{ booking.seat_number }}</td>
+            <td><span class="badge bg-success">{{ booking.status }}</span></td>
+            <td>{{ booking.journey_date }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" class="text-center text-muted">No bookings found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3>Available Trains</h3>
+    <span class="text-muted">{{ source }} → {{ destination }}</span>
+</div>
+<table class="table table-hover table-bordered align-middle shadow-sm">
+    <thead class="table-primary">
+        <tr>
+            <th>Train</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Duration</th>
+            <th>Fare</th>
+            <th>Seats</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for train in trains %}
+        <tr>
+            <td>{{ train.train_name }}<br><small class="text-muted">#{{ train.train_number }}</small></td>
+            <td>{{ train.source }}</td>
+            <td>{{ train.destination }}</td>
+            <td>{{ train.departure_time }}</td>
+            <td>{{ train.arrival_time }}</td>
+            <td>{{ train.duration }}</td>
+            <td>₹{{ train.fare }}</td>
+            <td>{{ train.available_seats }}</td>
+            <td><a href="{{ url_for('trains.booking', train_id=train.id) }}" class="btn btn-sm btn-primary">Book</a></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="9" class="text-center text-muted">No trains found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

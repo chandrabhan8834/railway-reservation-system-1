@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h3 class="mb-4">Search Trains</h3>
+                <form method="post">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label>Source</label>
+                            <input type="text" name="source" class="form-control" placeholder="Bareilly" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Destination</label>
+                            <input type="text" name="destination" class="form-control" placeholder="Delhi" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Date</label>
+                            <input type="date" name="journey_date" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Class</label>
+                            <select name="class_name" class="form-select">
+                                <option value="Sleeper">Sleeper</option>
+                                <option value="AC">AC</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Sort By</label>
+                            <select name="sort_by" class="form-select">
+                                <option value="departure_time">Departure Time</option>
+                                <option value="fare">Fare</option>
+                                <option value="arrival_time">Arrival Time</option>
+                                <option value="available_seats">Available Seats</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h3 class="mb-4">Route Finder</h3>
+                <form method="post">
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <label>Source Station</label>
+                            <input type="text" name="source" class="form-control" placeholder="Bareilly" required>
+                        </div>
+                        <div class="col-md-5">
+                            <label>Destination Station</label>
+                            <input type="text" name="destination" class="form-control" placeholder="Jaipur" required>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Find</button>
+                        </div>
+                    </div>
+                </form>
+                {% if source and destination %}
+                <div class="mt-4 row g-3">
+                    <div class="col-md-6">
+                        <div class="border rounded p-3 bg-light h-100">
+                            <h5>BFS Route</h5>
+                            <p>{{ bfs_path | join(' → ') if bfs_path else 'No route found.' }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded p-3 bg-light h-100">
+                            <h5>DFS Traversal</h5>
+                            <p>{{ dfs_path | join(' → ') if dfs_path else 'No route found.' }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

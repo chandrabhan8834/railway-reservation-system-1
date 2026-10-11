@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3>Admin Dashboard</h3>
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+</div>
+<div class="row g-4 mb-4">
+    <div class="col-md-3"><div class="card shadow-sm border-0 bg-primary text-white h-100"><div class="card-body"><h5>Total Users</h5><h2>{{ total_users }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm border-0 bg-success text-white h-100"><div class="card-body"><h5>Total Trains</h5><h2>{{ total_trains }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm border-0 bg-warning text-dark h-100"><div class="card-body"><h5>Total Bookings</h5><h2>{{ total_bookings }}</h2></div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm border-0 bg-danger text-white h-100"><div class="card-body"><h5>Cancelled</h5><h2>{{ total_cancelled }}</h2></div></div></div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+        <h4>Add Train</h4>
+        <form method="post" action="{{ url_for('admin.admin_trains') }}">
+            <div class="row g-3">
+                <div class="col-md-3"><input type="text" name="train_number" class="form-control" placeholder="Train Number" required></div>
+                <div class="col-md-3"><input type="text" name="train_name" class="form-control" placeholder="Train Name" required></div>
+                <div class="col-md-2"><input type="text" name="source" class="form-control" placeholder="Source" required></div>
+                <div class="col-md-2"><input type="text" name="destination" class="form-control" placeholder="Destination" required></div>
+                <div class="col-md-2"><input type="time" name="departure_time" class="form-control" required></div>
+                <div class="col-md-2"><input type="time" name="arrival_time" class="form-control" required></div>
+                <div class="col-md-2"><input type="text" name="duration" class="form-control" placeholder="Duration" required></div>
+                <div class="col-md-2"><input type="number" step="0.01" name="fare" class="form-control" placeholder="Fare" required></div>
+                <div class="col-md-2"><input type="number" name="total_seats" class="form-control" placeholder="Total Seats" required></div>
+                <div class="col-md-2 d-flex align-items-end"><button type="submit" class="btn btn-primary w-100">Add</button></div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

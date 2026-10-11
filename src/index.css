@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #0f172a;
+    background: #edf5ff;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 25%), radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 20%), #edf5ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+.bg-rail-gradient {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f9fbff 42%, #dfefff 100%);
+}
+
+.rail-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.train-visual {
+    background: linear-gradient(135deg, rgba(15, 76, 166, 0.22), rgba(255, 255, 255, 0.18));
+}
+
+.rail-border {
+    border: 1px solid rgba(12, 67, 155, 0.18);
+}
+
+.hero-oval {
+    border-radius: 42% 58% 50% 50% / 38% 46% 54% 62%;
+}
+
+.rail-pill {
+    border-radius: 9999px;
+}
+
+.soft-shadow {
+    box-shadow: 0 25px 60px rgba(17, 52, 117, 0.12);
+}

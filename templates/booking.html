@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h3 class="mb-3">Passenger Details</h3>
+                <div class="alert alert-info">
+                    <strong>{{ train.train_name }}</strong> (#{{ train.train_number }}) • {{ train.source }} → {{ train.destination }}
+                </div>
+                <form method="post">
+                    <input type="hidden" name="train_id" value="{{ train.id }}">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label>Passenger Name</label>
+                            <input type="text" name="passenger_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Age</label>
+                            <input type="number" name="age" class="form-control" min="1" max="120" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Gender</label>
+                            <select name="gender" class="form-select" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Class</label>
+                            <select name="class_name" class="form-select" required>
+                                <option value="Sleeper">Sleeper</option>
+                                <option value="AC">AC</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Journey Date</label>
+                            <input type="date" name="journey_date" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Price</label>
+                            <input type="text" class="form-control" value="₹{{ train.fare }}" readonly>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-4 w-100">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,898 @@
+﻿:root {
+    --navy-900: #0b2d5c;
+    --navy-800: #123d75;
+    --navy-700: #1b5bb3;
+    --sky-100: #eef8ff;
+    --sky-200: #dfeeff;
+    --white: #ffffff;
+    --orange: #f5a11d;
+    --orange-deep: #eb7d18;
+    --text: #173e6d;
+    --muted: #6d7f99;
+    --line: rgba(15, 47, 94, 0.09);
+    --shadow: 0 20px 45px rgba(10, 39, 78, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #edf6ff;
+    color: var(--text);
+}
+
+body {
+    line-height: 1.4;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+main.page-shell {
+    width: 100%;
+    padding: 0;
+}
+
+.flash-banner {
+    display: none !important;
+}
+
+.railway-homepage {
+    width: min(1480px, calc(100% - 22px));
+    margin: 18px auto 26px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    box-shadow: var(--shadow);
+    padding: 16px 22px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.railway-homepage::before,
+.railway-homepage::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(115, 170, 255, 0.12);
+}
+
+.railway-homepage::before {
+    width: 520px;
+    height: 520px;
+    right: -180px;
+    top: -160px;
+}
+
+.railway-homepage::after {
+    width: 420px;
+    height: 420px;
+    left: -180px;
+    bottom: -140px;
+}
+
+.top-header {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 250px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    padding: 12px 18px 9px;
+    border: 1px solid rgba(19, 55, 106, 0.05);
+}
+
+.brand-wrap,
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff, #dfeeff);
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 0 0 2px rgba(11, 41, 87, 0.08);
+    color: var(--navy-900);
+    font-size: 1.7rem;
+}
+
+.small-mark {
+    width: 42px;
+    height: 42px;
+    font-size: 1.35rem;
+}
+
+.brand-title {
+    color: var(--navy-900);
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #4f6d95;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 4px;
+}
+
+.main-nav a {
+    color: var(--navy-900);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 10px 0;
+}
+
+.main-nav a.active {
+    background: linear-gradient(135deg, #2c78de, #1f5db7);
+    color: var(--white);
+    padding: 13px 18px;
+    border-radius: 999px;
+    box-shadow: 0 10px 18px rgba(30, 82, 159, 0.22);
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.search-pill,
+.login-btn,
+.signup-btn,
+.language-pill {
+    border: none;
+    font-weight: 700;
+    background: transparent;
+    color: var(--navy-900);
+}
+
+.search-pill {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(17, 58, 108, 0.12);
+    font-size: 1.5rem;
+    display: grid;
+    place-items: center;
+    line-height: 1;
+}
+
+.login-btn,
+.signup-btn {
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+}
+
+.login-btn {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(221, 236, 255, 0.95));
+    border: 1px solid rgba(18, 62, 116, 0.08);
+    color: var(--navy-900);
+}
+
+.signup-btn {
+    background: linear-gradient(135deg, #0c2e5d, #174d93);
+    color: var(--white);
+    box-shadow: 0 16px 24px rgba(11, 38, 82, 0.2);
+}
+
+.language-pill {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(17, 58, 108, 0.12);
+    display: grid;
+    place-items: center;
+    font-size: 0.76rem;
+}
+
+.hero-shell {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 530px 1fr;
+    align-items: stretch;
+    gap: 18px;
+    padding-top: 20px;
+}
+
+.booking-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 10px solid rgba(124, 186, 255, 0.75);
+    border-radius: 36px 36px 46px 46px / 24px 24px 30px 30px;
+    padding: 16px 16px 12px;
+    box-shadow: 0 20px 45px rgba(14, 38, 72, 0.12);
+}
+
+.booking-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.tab {
+    border: 1px solid rgba(17, 58, 108, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 10px 8px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    color: var(--navy-900);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.tab.active {
+    background: linear-gradient(180deg, #eef8ff, #dfeefe);
+    color: var(--navy-900);
+    border-color: rgba(28, 88, 182, 0.14);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 52px 1fr;
+    gap: 14px;
+    align-items: end;
+}
+
+.field-row-bottom {
+    grid-template-columns: 1fr 1fr;
+}
+
+.single-field {
+    grid-template-columns: 1fr;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: 0.70rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy-900);
+}
+
+.field-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: rgba(240, 246, 255, 0.95);
+    border: 1px solid rgba(17, 58, 108, 0.08);
+    border-radius: 16px;
+    padding: 12px 12px;
+    min-height: 54px;
+}
+
+.field-icon {
+    font-size: 1.05rem;
+    color: var(--navy-900);
+    opacity: 0.8;
+    flex: 0 0 auto;
+}
+
+.field-box input,
+.field-box select {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--navy-900);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.field-box select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.swap-btn {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #0d2a57, #1b67c7);
+    color: var(--white);
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(24, 74, 146, 0.25);
+    margin-bottom: 7px;
+}
+
+.extra-options {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.extra-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy-900);
+}
+
+.extra-options input {
+    accent-color: var(--orange);
+    width: 15px;
+    height: 15px;
+}
+
+.search-train-btn {
+    width: 100%;
+    margin-top: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0f5ad5, #0d3f8b);
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 800;
+    padding: 16px 18px;
+    box-shadow: 0 18px 28px rgba(17, 82, 166, 0.18);
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.mini-panel {
+    padding: 8px 2px 0;
+}
+
+.mini-panel label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy-900);
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.visual-backdrop {
+    position: absolute;
+    inset: 12px 0 0 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02));
+    border-radius: 28px;
+}
+
+.train-visual {
+    position: relative;
+    width: min(100%, 700px);
+    height: 470px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-image: linear-gradient(180deg, rgba(8, 22, 40, 0.08), rgba(8, 22, 40, 0.14)), url("https://indianfoodfreak.com/wp-content/uploads/2023/10/98594223-1024x576.webp");
+    background-size: cover;
+    background-position: 54% 50%;
+    background-repeat: no-repeat;
+    border: 8px solid rgba(255, 255, 255, .22);
+    box-shadow: 0 28px 42px rgba(11, 35, 71, 0.18);
+    transform: scale(1.04);
+    transform-origin: center center;
+}
+
+.train-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9, 28, 52, 0.04), rgba(9, 28, 52, 0.18));
+}
+
+.hero-copy-box {
+    position: absolute;
+    top: 34px;
+    left: 42px;
+    right: 32px;
+    z-index: 1;
+    color: var(--white);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.eyebrow {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+}
+
+.hero-tagline {
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.hero-quote {
+    margin-top: 12px;
+    max-width: 270px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    font-style: italic;
+}
+
+.service-badges {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    width: min(100%, 480px);
+}
+
+.service-item {
+    width: 104px;
+    height: 104px;
+    position: relative;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(16, 56, 105, 0.09);
+    box-shadow: 0 13px 22px rgba(10, 35, 69, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    color: var(--navy-900);
+    font-size: 0.62rem;
+    font-weight: 800;
+    line-height: 1.2;
+    padding: 10px;
+}
+
+.badge-icon {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.hero-script {
+    position: absolute;
+    right: 28px;
+    bottom: 18px;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.55rem;
+    line-height: 1.1;
+    font-weight: 700;
+    font-style: italic;
+    text-align: right;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+.popular-routes {
+    position: relative;
+    z-index: 2;
+    margin-top: 22px;
+    padding: 0 6px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 1.8vw, 2.5rem);
+    color: var(--navy-900);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+}
+
+.section-heading a {
+    color: #0f4ba7;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+.route-card {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(18, 58, 108, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 22px rgba(11, 35, 71, 0.06);
+}
+
+.route-image {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-one,
+.image-two,
+.image-three,
+.image-four,
+.image-five,
+.image-six {
+    background-image: linear-gradient(180deg, rgba(15, 48, 92, 0.08), rgba(15, 48, 92, 0.18)), url('https://indianfoodfreak.com/wp-content/uploads/2023/10/98594223-1024x576.webp');
+    background-position: center center;
+    background-size: cover;
+}
+
+.image-two {
+    background-position: 38% 50%;
+}
+
+.image-three {
+    background-position: 58% 50%;
+}
+
+.image-four {
+    background-position: 70% 50%;
+}
+
+.image-five {
+    background-position: 45% 50%;
+}
+
+.image-six {
+    background-position: 62% 50%;
+}
+
+.route-info {
+    padding: 12px 10px 14px;
+}
+
+.route-info h3 {
+    margin: 0 0 8px;
+    color: var(--navy-900);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.route-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.route-info strong {
+    color: var(--navy-900);
+}
+
+.route-info span {
+    color: var(--navy-900);
+}
+
+.promo-strip {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.promo-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, rgba(122, 188, 255, 0.95), rgba(79, 145, 240, 0.9));
+    padding: 20px 18px;
+    color: var(--white);
+    box-shadow: 0 12px 28px rgba(34, 91, 182, 0.18);
+}
+
+.promo-payment {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.85), rgba(223, 238, 255, 0.9));
+    color: var(--navy-900);
+}
+
+.promo-icon {
+    width: 54px;
+    height: 54px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1.7rem;
+    flex: 0 0 auto;
+}
+
+.promo-payment .promo-icon {
+    background: rgba(27, 87, 187, 0.1);
+}
+
+.promo-copy {
+    flex: 1;
+}
+
+.promo-copy h3 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.promo-copy p {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.store-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-left: auto;
+}
+
+.store-badge {
+    background: #0c0c0d;
+    color: var(--white);
+    border-radius: 8px;
+    padding: 8px 10px 7px;
+    font-size: 0.5rem;
+    line-height: 1.3;
+    min-width: 124px;
+}
+
+.store-badge strong {
+    font-size: 0.76rem;
+}
+
+.site-footer {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr 0.9fr 0.9fr 0.9fr;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 26px 0 12px;
+    border-top: 1px solid rgba(17, 58, 108, 0.1);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.footer-brand-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-weight: 800;
+    color: var(--navy-900);
+    font-size: 1rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-column h4 {
+    margin: 0 0 6px;
+    color: var(--navy-900);
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.footer-column a {
+    color: var(--navy-900);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.footer-rail-art {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    min-height: 110px;
+}
+
+.rail-skyline {
+    width: 100%;
+    height: 90px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(12, 47, 94, 0.08), rgba(12, 47, 94, 0.18));
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+}
+
+.rail-skyline::before,
+.rail-skyline::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 100%;
+}
+
+.rail-skyline::before {
+    background: linear-gradient(90deg, transparent 0 8%, rgba(12, 47, 94, 0.22) 8% 9%, transparent 9% 20%, rgba(12, 47, 94, 0.22) 20% 21%, transparent 21% 40%, rgba(12, 47, 94, 0.18) 40% 44%, transparent 44% 55%, rgba(12, 47, 94, 0.18) 55% 59%, transparent 59% 72%, rgba(12, 47, 94, 0.2) 72% 76%, transparent 76%);
+    border-top: 4px solid rgba(12, 47, 94, 0.18);
+}
+
+.rail-skyline::after {
+    height: 18px;
+    bottom: 0;
+    background: repeating-linear-gradient(90deg, rgba(12, 47, 94, 0.18) 0 24px, transparent 24px 52px);
+}
+
+.legal-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0 18px;
+    color: var(--navy-900);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.love {
+    color: #d33b44;
+}
+
+@media (max-width: 1180px) {
+    .route-grid {
+        grid-template-columns: repeat(3, minmax(160px, 1fr));
+    }
+    .hero-shell {
+        grid-template-columns: 1fr;
+    }
+    .site-footer {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 860px) {
+    .top-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .header-tools {
+        justify-content: center;
+    }
+    .main-nav {
+        gap: 12px 18px;
+    }
+    .route-grid {
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+    }
+    .promo-strip {
+        grid-template-columns: 1fr;
+    }
+    .legal-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .railway-homepage {
+        width: min(100% - 14px, 100%);
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .booking-tabs,
+    .field-row,
+    .field-row-bottom,
+    .route-grid,
+    .site-footer {
+        grid-template-columns: 1fr;
+    }
+    .booking-tabs {
+        display: grid;
+    }
+    .field-row {
+        display: grid;
+    }
+    .field-row-bottom {
+        display: grid;
+    }
+    .extra-options {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .service-badges {
+        gap: 10px;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .service-item {
+        width: 82px;
+        height: 82px;
+    }
+    .hero-script {
+        right: 22px;
+        font-size: 1.15rem;
+    }
+}

@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="railway-homepage">
+    <header class="top-header">
+        <div class="brand-wrap">
+            <div class="brand-mark">
+                <span class="brand-train">🚆</span>
+            </div>
+            <div class="brand-text">
+                <div class="brand-title">RailYatra</div>
+                <div class="brand-subtitle">Journey Connects India</div>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="active" href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('trains.search') }}">Book Ticket</a>
+            <a href="{{ url_for('trains.pnr_lookup') }}">PNR Status</a>
+            <a href="{{ url_for('routes.route_finder') }}">Train Schedule</a>
+            <a href="{{ url_for('trains.my_bookings') }}">My Bookings</a>
+            <a href="{{ url_for('auth.login') }}">Help</a>
+        </nav>
+
+        <div class="header-tools">
+            <a class="search-pill" href="{{ url_for('trains.search') }}" aria-label="Search">⌕</a>
+            <a class="login-btn" href="{{ url_for('auth.login') }}">Login</a>
+            <a class="signup-btn" href="{{ url_for('auth.register') }}">Sign Up</a>
+            <div class="language-pill">EN</div>
+        </div>
+    </header>
+
+    <section class="hero-shell">
+        <div class="booking-card">
+            <div class="booking-tabs">
+                <button class="tab active" type="button" data-tab="ticket" aria-pressed="true">🚆 Book Train Ticket</button>
+                <button class="tab" type="button" data-tab="pnr" aria-pressed="false">📄 PNR Status</button>
+                <button class="tab" type="button" data-tab="schedule" aria-pressed="false">🗓️ Train Schedule</button>
+                <button class="tab" type="button" data-tab="cancel" aria-pressed="false">❌ Cancel Ticket</button>
+            </div>
+
+            <div class="tab-panel active" data-tab-panel="ticket">
+                <div class="booking-form">
+                    <div class="field-row field-row-top">
+                        <div class="form-field">
+                            <label>From</label>
+                            <div class="field-box">
+                                <span class="field-icon">◉</span>
+                                <input type="text" value="New Delhi (NDLS)" aria-label="From station">
+                            </div>
+                        </div>
+
+                        <button class="swap-btn" type="button" aria-label="Swap stations">⇄</button>
+
+                        <div class="form-field">
+                            <label>To</label>
+                            <div class="field-box">
+                                <span class="field-icon">◉</span>
+                                <input type="text" value="Mumbai Central (BCT)" aria-label="To station">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-row field-row-bottom">
+                        <div class="form-field">
+                            <label>Journey Date</label>
+                            <div class="field-box date-box">
+                                <span class="field-icon">📅</span>
+                                <input type="text" value="25 Sep 2026" aria-label="Journey date">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label>Class</label>
+                            <div class="field-box">
+                                <span class="field-icon">🚆</span>
+                                <select aria-label="Class">
+                                    <option>Sleeper (SL)</option>
+                                    <option>AC 2 Tier</option>
+                                    <option>AC 3 Tier</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-row field-row-bottom single-field">
+                        <div class="form-field">
+                            <label>Passengers</label>
+                            <div class="field-box">
+                                <span class="field-icon">👤</span>
+                                <select aria-label="Passengers">
+                                    <option>1 Passenger</option>
+                                    <option>2 Passengers</option>
+                                    <option>3 Passengers</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="extra-options">
+                        <label><input type="checkbox"> Flexible with Date</label>
+                        <label><input type="checkbox"> Divyang Concession</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="pnr">
+                <div class="mini-panel">
+                    <label>PNR Number</label>
+                    <div class="field-box">
+                        <span class="field-icon">📄</span>
+                        <input type="text" value="1234567890" aria-label="PNR number">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="schedule">
+                <div class="mini-panel schedule-panel">
+                    <div class="two-col">
+                        <div>
+                            <label>From Station</label>
+                            <div class="field-box">
+                                <span class="field-icon">◉</span>
+                                <input type="text" value="New Delhi" aria-label="From schedule station">
+                            </div>
+                        </div>
+                        <div>
+                            <label>To Station</label>
+                            <div class="field-box">
+                                <span class="field-icon">◉</span>
+                                <input type="text" value="Mumbai" aria-label="To schedule station">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="cancel">
+                <div class="mini-panel">
+                    <label>Ticket PNR to Cancel</label>
+                    <div class="field-box">
+                        <span class="field-icon">❌</span>
+                        <input type="text" value="1234567890" aria-label="Ticket PNR to cancel">
+                    </div>
+                </div>
+            </div>
+
+            <button class="search-train-btn" type="button" data-search-target="ticket">Search Trains</button>
+        </div>
+
+        <div class="hero-visual">
+            <div class="visual-backdrop"></div>
+            <div class="train-visual">
+                <div class="hero-copy-box">
+                    <div class="eyebrow">Travel Across India</div>
+                    <div class="hero-tagline">Safe | Comfortable | Affordable</div>
+                    <div class="hero-quote">“More than a journey,<br>it’s a connection to a better tomorrow.”</div>
+                </div>
+                <div class="service-badges">
+                    <div class="service-item">
+                        <span class="badge-icon">✔</span>
+                        <span>Confirmed<br>Bookings</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="badge-icon">🔒</span>
+                        <span>Secure<br>Payments</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="badge-icon">24×7</span>
+                        <span>Support</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="badge-icon">🌱</span>
+                        <span>Eco-Friendly<br>Travel</span>
+                    </div>
+                </div>
+                <div class="hero-script">Bharat<br>Chalta Rahe</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-routes">
+        <div class="section-heading">
+            <h2>Popular Routes</h2>
+            <a href="{{ url_for('routes.route_finder') }}">View All Routes →</a>
+        </div>
+
+        <div class="route-grid">
+            <a class="route-card" href="{{ url_for('trains.search') }}">
+                <div class="route-image image-one"></div>
+                <div class="route-info">
+                    <h3>New Delhi → Mumbai</h3>
+                    <p>From <strong>₹ 605</strong> &nbsp; | &nbsp; Trains: <span>20+</span></p>
+                </div>
+            </a>
+            <a class="route-card" href="{{ url_for('trains.search') }}">
+                <div class="route-image image-two"></div>
+                <div class="route-info">
+                    <h3>New Delhi → Kolkata</h3>
+                    <p>From <strong>₹ 635</strong> &nbsp; | &nbsp; Trains: <span>100+</span></p>
+                </div>
+            </a>
+            <a class="route-card" href="{{ url_for('trains.search') }}">
+                <div class="route-image image-three"></div>
+                <div class="route-info">
+                    <h3>Bengaluru → Chennai</h3>
+                    <p>From <strong>₹ 435</strong> &nbsp; | &nbsp; Trains: <span>80+</span></p>
+                </div>
+            </a>
+            <a class="route-card" href="{{ url_for('trains.search') }}">
+                <div class="route-image image-four"></div>
+                <div class="route-info">
+                    <h3>Hyderabad → New Delhi</h3>
+                    <p>From <strong>₹ 720</strong> &nbsp; | &nbsp; Trains: <span>90+</span></p>
+                </div>
+            </a>
+            <a class="route-card" href="{{ url_for('trains.search') }}">
+                <div class="route-image image-five"></div>
+                <div class="route-info">
+                    <h3>Ahmedabad → Mumbai</h3>
+                    <p>From <strong>₹ 515</strong> &nbsp; | &nbsp; Trains: <span>70+</span></p>
+                </div>
+            </a>
+            <a class="route-card" href="{{ url_for('trains.search') }}">
+                <div class="route-image image-six"></div>
+                <div class="route-info">
+                    <h3>Pune → Jaipur</h3>
+                    <p>From <strong>₹ 645</strong> &nbsp; | &nbsp; Trains: <span>60+</span></p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="promo-strip">
+        <div class="promo-item promo-app">
+            <div class="promo-icon">📱</div>
+            <div class="promo-copy">
+                <h3>Book on the Go!</h3>
+                <p>Download our mobile app for a faster and smoother booking experience.</p>
+            </div>
+            <div class="store-badges">
+                <div class="store-badge google">GET IT ON<br><strong>Google Play</strong></div>
+                <div class="store-badge apple">Download on the<br><strong>App Store</strong></div>
+            </div>
+        </div>
+
+        <div class="promo-item promo-payment">
+            <div class="promo-icon">💳</div>
+            <div class="promo-copy">
+                <h3>Secure &amp; Trusted Payments</h3>
+                <p>Multiple payment options including UPI, Cards, Net Banking and Wallets.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-brand-block">
+            <div class="footer-brand">
+                <div class="brand-mark small-mark">🚆</div>
+                <div class="brand-text">
+                    <div class="brand-title">RailYatra</div>
+                    <div class="brand-subtitle">Journey Connects India</div>
+                </div>
+            </div>
+            <div class="social-icons">
+                <span>f</span>
+                <span>◎</span>
+                <span>◌</span>
+                <span>in</span>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <a href="#">Book Ticket</a>
+            <a href="#">PNR Status</a>
+            <a href="#">Train Schedule</a>
+            <a href="#">Cancel Ticket</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Press Releases</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Support</h4>
+            <a href="#">Help &amp; FAQ</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="footer-rail-art" aria-hidden="true">
+            <div class="rail-skyline"></div>
+        </div>
+    </footer>
+
+    <div class="legal-bar">
+        <span>© 2026 RailYatra. All rights reserved.</span>
+        <span>Made with <span class="love">♥</span> for a stronger, connected India</span>
+    </div>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-panel');
+    const searchButton = document.querySelector('.search-train-btn');
+    const swapButton = document.querySelector('.swap-btn');
+
+    const SEARCH_URLS = {
+        ticket: '{{ url_for("trains.search") }}',
+        pnr: '{{ url_for("trains.pnr_lookup") }}',
+        schedule: '{{ url_for("routes.route_finder") }}',
+        cancel: '{{ url_for("trains.cancel_ticket") }}'
+    };
+
+    function setActiveTab(targetTab) {
+        tabs.forEach(tab => {
+            const isActive = tab.dataset.tab === targetTab;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-pressed', String(isActive));
+        });
+
+        panels.forEach(panel => {
+            const isActive = panel.dataset.tabPanel === targetTab;
+            panel.classList.toggle('active', isActive);
+        });
+
+        const labels = {
+            ticket: 'Search Trains',
+            pnr: 'Check PNR',
+            schedule: 'Find Trains',
+            cancel: 'Cancel Ticket'
+        };
+
+        if (searchButton) {
+            searchButton.textContent = labels[targetTab] || 'Search';
+            searchButton.dataset.searchTarget = targetTab;
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => setActiveTab(tab.dataset.tab));
+    });
+
+    if (swapButton) {
+        swapButton.addEventListener('click', () => {
+            const fromInput = document.querySelector('input[aria-label="From station"]');
+            const toInput = document.querySelector('input[aria-label="To station"]');
+            if (fromInput && toInput) {
+                const temp = fromInput.value;
+                fromInput.value = toInput.value;
+                toInput.value = temp;
+            }
+        });
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', () => {
+            const target = searchButton.dataset.searchTarget || 'ticket';
+            const targetUrl = SEARCH_URLS[target] || SEARCH_URLS.ticket;
+
+            if (target === 'ticket') {
+                const from = document.querySelector('input[aria-label="From station"]')?.value || '';
+                const to = document.querySelector('input[aria-label="To station"]')?.value || '';
+                const date = document.querySelector('input[aria-label="Journey date"]')?.value || '';
+                const params = new URLSearchParams({
+                    from,
+                    to,
+                    date
+                });
+                window.location.href = `${targetUrl}?${params.toString()}`;
+                return;
+            }
+
+            if (target === 'pnr') {
+                const pnr = document.querySelector('input[aria-label="PNR number"]')?.value || '';
+                window.location.href = `${targetUrl}?pnr=${encodeURIComponent(pnr)}`;
+                return;
+            }
+
+            if (target === 'schedule') {
+                const from = document.querySelector('input[aria-label="From schedule station"]')?.value || '';
+                const to = document.querySelector('input[aria-label="To schedule station"]')?.value || '';
+                const params = new URLSearchParams({ from, to });
+                window.location.href = `${targetUrl}?${params.toString()}`;
+                return;
+            }
+
+            if (target === 'cancel') {
+                const pnr = document.querySelector('input[aria-label="Ticket PNR to cancel"]')?.value || '';
+                window.location.href = `${targetUrl}?pnr=${encodeURIComponent(pnr)}`;
+            }
+        });
+    }
+</script>
+{% endblock %}
